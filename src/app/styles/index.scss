@@ -1,0 +1,56 @@
+@use './colors.scss' as colors;
+@use './reset.scss';
+
+body {
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+p,
+div,
+span {
+    font-family: 'Rubik', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-optical-sizing: auto !important;
+    font-weight: 700 !important;
+    font-style: normal;
+    margin-top: 0;
+}
+
+a {
+    color: colors.$text-base;
+    font-size: 16px;
+}
+
+.logo {
+    font-family: 'Sacramento', cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 44px;
+    cursor: pointer;
+    user-select: none;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+.container {
+    max-width: 1140px;
+    padding: 0 15px;
+    width: 100%;
+    margin: 0 auto;
+}

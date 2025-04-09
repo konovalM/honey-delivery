@@ -20,7 +20,41 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    /* Aliases */
+    "baseUrl": "./",
+    "paths": {
+        "@app/*": [
+            "src/app/*"
+        ],
+        "@components/*": [
+            "src/shared/components/*"
+        ],
+        "@utils/*": [
+            "src/utils/*"
+        ],
+        "@hooks/*": [
+            "src/shared/hooks/*"
+        ],
+        "@icons/*": [
+            "src/shared/assets/icons/*"
+        ],
+        "@styles/*": [
+            "src/app/styles/*"
+        ],
+        "@pages/*": [
+            "src/pages/*"
+        ],
+        "@widgets/*": [
+            "src/widgets/*"
+        ],
+        "@shared/*": [
+            "src/shared/*"
+        ],
+        "@features/*": [
+            "src/features/*"
+        ],
+    },
   },
-  "include": ["src"]
+  "include": ["src", "vite.config.ts"]
 }

@@ -1,0 +1,72 @@
+.productTile {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+    position: relative;
+
+    &:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+}
+
+.tileContent {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.checkbox {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+}
+
+.productImage {
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.productInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.productName {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.productDescription {
+    margin-bottom: 0.5rem !important;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.productPrice {
+    font-size: 1.2rem;
+    color: #1890ff;
+}
+
+.quantityControl {
+    margin-left: auto;
+}
+
+.removeButton {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #999;
+    font-size: 1rem;
+    padding: 0.5rem;
+
+    &:hover {
+        color: #ff4d4f;
+    }
+}

@@ -1,0 +1,58 @@
+@use './colors.scss' as *;
+
+html,
+body {
+    height: 100%;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ul,
+ol {
+    list-style: none;
+}
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+input,
+textarea,
+select,
+button {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    border: none;
+    outline: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+// antd reset default
+
+.css-var-r0 {
+    --ant-color-link: #65a5ff;
+}
+
+.ant-tag-checkable {
+    background-color: $bg-light2;
+}
+
+.ant-tag-checkable-checked {
+    background-color: $brand;
+}
+
+.ant-form-item .ant-form-item-explain {
+    font-size: 12px;
+    margin-top: 4px;
+}

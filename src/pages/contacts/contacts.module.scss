@@ -1,0 +1,187 @@
+@use '@styles/colors.scss' as *;
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.mainTitle {
+    color: $text-base;
+    font-size: 2.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto !important;
+}
+
+.contactGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.contactGroup {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.groupTitle {
+    display: block;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.groupItems {
+    display: grid;
+    gap: 1rem;
+}
+
+.contactCard {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 1.2rem;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 1;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        border-color: var(--accent-color);
+
+        .cardHoverEffect {
+            opacity: 0.1;
+        }
+    }
+}
+
+.cardIcon {
+    font-size: 1.8rem;
+    margin-right: 1.2rem;
+    color: var(--accent-color);
+}
+
+.instaIcon {
+    color: #e1306c;
+}
+
+.tgIcon {
+    color: #2aabee;
+    max-width: 28px;
+    transform: scale(1.2);
+}
+
+.waIcon {
+    color: #25d366;
+}
+
+.smsIcon {
+    color: #1890ff;
+}
+
+.mailIcon {
+    color: #ff4d4f;
+}
+
+.phoneIcon {
+    color: #722ed1;
+}
+
+.cardContent {
+    flex: 1;
+}
+
+.cardLabel {
+    display: block;
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.cardValue {
+    display: block;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.cardHoverEffect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.divider {
+    margin: 3rem 0 !important;
+}
+
+.infoBlock {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.infoTitle {
+    color: #2c3e50 !important;
+    text-align: center;
+    margin-bottom: 1.5rem !important;
+}
+
+.schedule {
+    display: grid;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.scheduleItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.location {
+    text-align: center;
+    margin-bottom: 0 !important;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .mainTitle {
+        font-size: 2rem !important;
+    }
+
+    .contactGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .contactGroup {
+        padding: 1.2rem;
+    }
+}

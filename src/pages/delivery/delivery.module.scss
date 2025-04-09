@@ -1,0 +1,151 @@
+@use '@styles/colors.scss' as *;
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.mainTitle {
+    text-align: center;
+    color: $text-base;
+    margin-bottom: 1.5rem !important;
+}
+
+.introText {
+    text-align: center;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 2rem !important;
+    color: #555;
+}
+
+.highlightBanner {
+    background: #fff7e6;
+    border-left: 4px solid #faad14;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 4px;
+}
+
+.highlightText {
+    font-size: 1.1rem !important;
+    color: #d48806 !important;
+    margin: 0 !important;
+}
+
+.divider {
+    margin: 2rem 0 !important;
+    font-size: 1.2rem !important;
+    color: #389e0d !important;
+}
+
+.deliveryMethods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.deliveryCard {
+    border-radius: 12px !important;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    }
+}
+
+.imageContainer {
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f7f7f7;
+    position: relative;
+}
+
+.deliveryImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cityTag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cardTitle {
+    color: #2c3e50 !important;
+    margin-bottom: 1rem !important;
+}
+
+.sectionTitle {
+    color: #389e0d !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.featuresDivider,
+.conditionsDivider,
+.noteDivider {
+    margin: 1rem 0 !important;
+}
+
+.featuresList,
+.conditionsList {
+    width: 100%;
+}
+
+.featureItem,
+.conditionItem {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.noteText {
+    font-size: 0.9rem !important;
+    display: block;
+}
+
+.additionalInfo {
+    background: #f6ffed;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    border-left: 4px solid #389e0d;
+}
+
+.infoTitle {
+    color: #389e0d !important;
+    margin-bottom: 1rem !important;
+}
+
+@media (max-width: 768px) {
+    .deliveryMethods {
+        grid-template-columns: 1fr;
+    }
+
+    .mainTitle {
+        font-size: 1.8rem !important;
+    }
+
+    .introText,
+    .highlightText {
+        font-size: 1rem !important;
+    }
+
+    .imageContainer {
+        height: 160px;
+    }
+}
