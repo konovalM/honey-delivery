@@ -1,0 +1,38 @@
+services:
+  postgres:
+    image: postgres:13
+    container_name: honey_postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "${DB_PORT}:5432"  # Пробрасываем порт БД
+    volumes:
+      - honey_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app: 
+    build: .
+    container_name: honey_app
+    ports:
+      - "${APP_PORT}:${APP_PORT}" 
+    environment:
+      - DB_HOST=postgres 
+      - DB_PORT=5432
+      - DB_NAME=${POSTGRES_DB}
+      - DB_USER=${POSTGRES_USER}
+      - DB_PASSWORD=${POSTGRES_PASSWORD}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - .:/app
+    command: npm run dev
+
+volumes:
+  honey_postgres_data:
