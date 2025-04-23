@@ -10,5 +10,6 @@ router.post('/', cartController.addToCart);
 router.patch('/:productId', cartController.updateQuantity);
 router.delete('/:productId', cartController.removeFromCart);
 router.delete('/', cartController.clearCart);
+router.get('/total', cartController.getCartTotal);
 
 module.exports = router;
