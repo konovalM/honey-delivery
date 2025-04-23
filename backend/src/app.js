@@ -3,6 +3,7 @@ const cors = require('cors');
 const productRoutes = require('./routes/products');
 const authRoutes = require('./routes/auth');
 const favoriteRoutes = require('./routes/favorite');
+const cartRoutes = require('./routes/cart');
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.get('/', (req, res) => {
 app.use('/api/products', productRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/favorites', favoriteRoutes);
+app.use('/api/cart', cartRoutes);
 
 // Error handling
 app.use((err, req, res, next) => {
