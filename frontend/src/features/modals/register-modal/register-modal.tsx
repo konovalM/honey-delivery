@@ -1,18 +1,11 @@
-import { Modal, Form, Input, Button, Row, Col, Checkbox } from 'antd';
-import React, { FC } from 'react';
+import { RegisterDto } from '@entities/user/model';
+import { Button, Checkbox, Col, Form, Input, Modal, Row } from 'antd';
+import { FC } from 'react';
 
 interface Props {
     open?: boolean;
     onCancel?: () => void;
-    onRegister?: (values: {
-        firstName: string;
-        lastName: string;
-        middleName?: string;
-        phone: string;
-        email: string;
-        password: string;
-        confirmPassword: string;
-    }) => void;
+    onRegister?: (values: RegisterDto) => void;
 }
 
 export const RegisterModal: FC<Props> = ({ open, onCancel, onRegister }) => {

@@ -10,7 +10,7 @@ export const Promo = () => {
                 <div className="container">
                     <ul className={cls.promoNav}>
                         {promoRoutes.map(({ path, name }) => (
-                            <li>
+                            <li key={path + name}>
                                 <Link to={path}>{name}</Link>
                             </li>
                         ))}

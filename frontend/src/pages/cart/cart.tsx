@@ -1,9 +1,10 @@
 import { CloseOutlined } from '@ant-design/icons';
 import { ProductTile } from '@components/product-tile/product-tile';
-import { Button, Card, Col, Divider, Row, Typography } from 'antd';
-import { useState } from 'react';
+import { Button, Card, Col, Divider, notification, Row, Typography } from 'antd';
+import { useMemo, useState } from 'react';
 import cls from './cart.module.scss';
 import honeyImg from '@shared/assets/honey.png';
+import { useCart, useClearCart, useRemoveFromCart, useUpdateCartQuantity } from '@entities/cart/hooks';
 
 const { Title, Text } = Typography;
 
@@ -17,43 +18,21 @@ interface Product {
 }
 
 export const Cart = () => {
-    // Моковые данные товаров
-    const [products, setProducts] = useState<Product[]>([
-        {
-            id: '1',
-            image: honeyImg,
-            name: 'Мед гречишный',
-            description: 'Натуральный мед с цветущих полей Краснодарского края',
-            price: 1500,
-            quantity: 1
-        },
-        {
-            id: '2',
-            image: honeyImg,
-            name: 'Мед липовый',
-            description: 'Ароматный мед с липовых рощ, собран в экологически чистом районе',
-            price: 1800,
-            quantity: 2
-        },
-        {
-            id: '3',
-            image: honeyImg,
-            name: 'Мед акациевый',
-            description: 'Нежный мед с тонким ароматом акации',
-            price: 2000,
-            quantity: 1
-        }
-    ]);
+    const { data: cart } = useCart();
+    const { mutateAsync: removeFromCart } = useRemoveFromCart();
+    const { mutateAsync: clearCart } = useClearCart();
+    const { mutateAsync: updateQuantity } = useUpdateCartQuantity();
+    const [toast, contextHolder] = notification.useNotification();
 
-    const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
+    const items = cart?.items || [];
 
-    const handleQuantityChange = (id: string, value: number) => {
-        setProducts(products.map(p =>
-            p.id === id ? { ...p, quantity: value } : p
-        ));
-    };
+    const [selectedProducts, setSelectedProducts] = useState<number[]>([]);
 
-    const handleToggleSelect = (id: string, selected: boolean) => {
+    const handleQuantityChange = (productId: number, value: number) => {
+        updateQuantity({ productId, quantity: value });
+      };
+
+    const handleToggleSelect = (id: number, selected: boolean) => {
         setSelectedProducts(selected
             ? [...selectedProducts, id]
             : selectedProducts.filter(pId => pId !== id)
@@ -61,30 +40,36 @@ export const Cart = () => {
     };
 
     const handleRemoveProduct = (id: string) => {
-        setProducts(products.filter(p => p.id !== id));
-        setSelectedProducts(selectedProducts.filter(pId => pId !== id));
+        // setProducts(products.filter(p => p.id !== id));
+        // setSelectedProducts(selectedProducts.filter(pId => pId !== id));
     };
 
     const handleClearCart = () => {
-        setProducts([]);
+        clearCart().then(() => {
+            toast.success({
+                message: 'Корзина очищена',
+                placement: 'bottomRight',
+            })
+        });
         setSelectedProducts([]);
     };
 
     // Расчет общей стоимости
-    const selectedItems = products.filter(p => selectedProducts.includes(p.id));
-    const subtotal = selectedItems.reduce((sum, p) => sum + (p.price * p.quantity), 0);
-    const deliveryCost = subtotal > 3000 ? 0 : 300;
-    const total = subtotal + deliveryCost;
+    const selectedItems = items.filter(cartItem => selectedProducts.includes(cartItem.id));
+    const subtotal = selectedItems.reduce((sum, p) => sum + (p.product.price * p.quantity), 0);
+    const deliveryCost = cart?.total && cart.total > 3000 ? 0 : 300;
+    const total = cart?.total || 0 + deliveryCost;
 
     return (
         <div className={cls.container}>
+            {contextHolder}
             <Title level={1} className={cls.mainTitle}>Корзина</Title>
 
             <div className={cls.actions}>
                 <Button
                     danger
                     onClick={handleClearCart}
-                    disabled={products.length === 0}
+                    disabled={items.length === 0}
                 >
                     Очистить корзину
                 </Button>
@@ -93,14 +78,14 @@ export const Cart = () => {
             <Row className={cls.wrapper} gutter={32}>
                 <Col span={18}>
                     <div className={cls.productsList}>
-                        {products.map(product => (
+                        {items.length === 0 ? <div style={{fontSize: '20px'}}>Корзина пуста</div> : items.map(cartItem => (
                             <ProductTile
-                                key={product.id}
-                                product={product}
+                                key={cartItem.id}
+                                cartItem={cartItem}
                                 onQuantityChange={handleQuantityChange}
                                 onToggleSelect={handleToggleSelect}
-                                onRemove={handleRemoveProduct}
-                                selected={selectedProducts.includes(product.id)}
+                                onRemove={() => removeFromCart(cartItem.product.id)}
+                                selected={selectedProducts.includes(cartItem.id)}
                             />
                         ))}
                     </div>

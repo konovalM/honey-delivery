@@ -1,10 +1,11 @@
+import { LoginDto } from '@entities/user/model';
 import { Modal, Form, Input, Button, Space } from 'antd';
 import React, { FC, useState } from 'react';
 
 interface Props {
     open?: boolean;
     onCancel?: () => void;
-    onLogin?: (values: { email: string; password: string }) => void;
+    onLogin?: (values: LoginDto) => void;
     onResetPassword?: (email: string) => void;
 }
 

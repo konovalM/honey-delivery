@@ -2,45 +2,43 @@ import { CloseOutlined } from '@ant-design/icons';
 import { Checkbox, Image, Typography } from 'antd';
 import cls from './product-tile.module.scss';
 import { QuantityControl } from '@components/quantity-control/quantity-control';
+import { CartItem } from '@entities/cart/model';
+import honeyImg from '@shared/assets/honey.png';
+import { Product } from '@entities/product/model';
 
 const { Text, Paragraph } = Typography;
 
-interface Product {
-    id: string;
-    image: string;
-    name: string;
-    description: string;
-    price: number;
-    quantity: number;
-}
+
 
 interface Props {
-    product: Product;
-    onQuantityChange: (id: string, value: number) => void;
-    onToggleSelect: (id: string, selected: boolean) => void;
-    onRemove: (id: string) => void;
+    cartItem: CartItem;
+    onQuantityChange: (id: number, value: number) => void;
+    onToggleSelect: (id: number, selected: boolean) => void;
+    onRemove: (id: number) => void;
     selected: boolean;
 }
 
 export const ProductTile: React.FC<Props> = ({
-    product,
+    cartItem,
     onQuantityChange,
     onToggleSelect,
     onRemove,
     selected
 }) => {
+
+    const product = {...cartItem.product, quantity: cartItem.quantity};
     return (
         <div className={cls.productTile}>
             <div className={cls.tileContent}>
                 <Checkbox
                     checked={selected}
-                    onChange={(e) => onToggleSelect(product.id, e.target.checked)}
+                    onChange={(e) => onToggleSelect(cartItem.id, e.target.checked)}
                     className={cls.checkbox}
                 />
 
                 <Image
-                    src={product.image}
-                    alt={product.name}
+                    src={honeyImg}
+                    alt={product.title}
                     width={120}
                     height={120}
                     className={cls.productImage}
@@ -48,7 +46,7 @@ export const ProductTile: React.FC<Props> = ({
                 />
 
                 <div className={cls.productInfo}>
-                    <Text strong className={cls.productName}>{product.name}</Text>
+                    <Text strong className={cls.productName}>{product.title}</Text>
                     <Paragraph type="secondary" className={cls.productDescription}>
                         {product.description}
                     </Paragraph>

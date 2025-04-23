@@ -3,31 +3,30 @@ import cls from './quantity-control-old.module.scss';
 
 interface Props {
     defaultValue?: number;
+    value: number;
+    onChange?: (value: number) => void
 }
 
-export const QuantityControlOld: FC<Props> = ({ defaultValue = 1 }) => {
-    const [quantity, setQuantity] = useState(defaultValue);
+export const QuantityControlOld: FC<Props> = ({ defaultValue = 1, value = defaultValue, onChange }) => {
 
-    const handleIncrement = () => setQuantity(prev => prev + 1);
-    const handleDecrement = () => setQuantity(prev => Math.max(1, prev - 1));
 
     return (
         <div className={cls.quantityControl}>
             <button
                 className={cls.quantityControlButton}
-                onClick={handleDecrement}
-                disabled={quantity <= 1}
+                onClick={() => onChange?.(value - 1)}
+                disabled={value <= 1}
             >
                 -
             </button>
 
             <span className={cls.quantityControlValue}>
-                {quantity}
+                {value}
             </span>
 
             <button
                 className={cls.quantityControlButton}
-                onClick={handleIncrement}
+                onClick={() => onChange?.(value + 1)}
             >
                 +
             </button>

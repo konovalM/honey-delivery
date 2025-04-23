@@ -67,6 +67,7 @@
             &.favorite {
                 animation-name: bubble;
                 animation-duration: 0.4s;
+                transform: scale(1.15);
                 & span > * {
                     fill: $red-100;
                     stroke: $red-100 !important;
