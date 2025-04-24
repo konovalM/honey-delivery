@@ -1,28 +1,10 @@
+import { GoodsCard } from '@components/card/goods-card';
+import { useAddToCart } from '@entities/cart/hooks';
+import { useAddFavorite, useFavorites, useRemoveFavorite } from '@entities/favorites/hooks';
+import { useProducts } from '@entities/product/hooks';
+import { Checkbox, notification, Tag } from 'antd';
 import React from 'react';
 import cls from './catalog.module.scss';
-import { Checkbox, notification, Radio, Tag } from 'antd';
-import { GoodsCard } from '@components/card/goods-card';
-import { useProducts } from '@entities/product/hooks';
-import { useAddFavorite, useFavorites, useRemoveFavorite } from '@entities/favorites/hooks';
-import { useAddToCart } from '@entities/cart/hooks';
-import { c } from 'node_modules/vite/dist/node/moduleRunnerTransport.d-CXw_Ws6P';
-
-interface Props { }
-
-const availabilityOptions = [
-    {
-        value: 'all',
-        label: 'Неважно',
-    },
-    {
-        value: 'available',
-        label: 'В наличии',
-    },
-    {
-        value: 'not_available',
-        label: 'Нет в наличии',
-    }
-]
 
 const discountOptions = [
     'Акция',

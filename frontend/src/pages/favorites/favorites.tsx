@@ -1,11 +1,9 @@
-import React from 'react';
-import cls from './favorites.module.scss';
 import { GoodsCard } from '@components/card/goods-card';
-import { Checkbox, notification, Radio, Spin } from 'antd';
-import { useFavorites, useAddFavorite, useRemoveFavorite } from '@entities/favorites/hooks';
 import { useAddToCart } from '@entities/cart/hooks';
+import { useFavorites, useRemoveFavorite } from '@entities/favorites/hooks';
+import { Checkbox, notification, Radio, Spin } from 'antd';
+import cls from './favorites.module.scss';
 
-interface Props { }
 
 const availabilityOptions = [
     {

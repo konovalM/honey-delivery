@@ -1,6 +1,6 @@
 import { LoginDto } from '@entities/user/model';
-import { Modal, Form, Input, Button, Space } from 'antd';
-import React, { FC, useState } from 'react';
+import { Button, Form, Input, Modal, Space } from 'antd';
+import { FC, useState } from 'react';
 
 interface Props {
     open?: boolean;

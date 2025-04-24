@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import cls from './about.module.scss';
 import img from './image.png';
 
@@ -39,7 +39,7 @@ export const About = () => {
             которые мы перевозим по экологически чистым районам Краснодарского края и всей России.
             Это позволяет нашим пчелам собирать нектар с самых разных культур растений.
           </p>
-          <img src={img} className={cls.image} alt="beefarm" style={{ maxidth: '300px' }} />
+          <img src={img} className={cls.image} alt="beefarm" style={{ maxWidth: '300px' }} />
           <p className={cls.paragraph}>
             Мы гордимся тем, что сохраняем традиции натурального пчеловодства,
             не используем химикаты и антибиотики. Наш мед - это 100% натуральный

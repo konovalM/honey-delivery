@@ -7,11 +7,6 @@ import { Button } from 'antd';
 import { memo, useState } from 'react';
 import cls from './goods-card.module.scss';
 
-interface ProductDetail {
-  label: string;
-  value: string;
-}
-
 interface Props {
   title?: string;
   price?: number;
@@ -25,7 +20,6 @@ interface Props {
 export const GoodsCard = memo<Props>(({
   title = 'Мёд цветочный 1кг',
   price = 1600,
-  crossedPrice,
   isFavorite = false,
   details = 'Этот мед идеален против простуды!',
   onToggleFavorite,

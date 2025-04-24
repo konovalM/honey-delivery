@@ -9,7 +9,7 @@ let productId;
 beforeAll(async () => {
   await sequelize.sync({ force: true });
 
-  // Регистрация пользователя
+  // Рега
   await request(app).post('/api/auth/register').send({
     firstName: 'Favorite',
     lastName: 'User',
@@ -18,7 +18,7 @@ beforeAll(async () => {
     password: 'testpass',
   });
 
-  // Логин и получение токена
+  // Логин
   const loginRes = await request(app).post('/api/auth/login').send({
     email: 'favorite@test.com',
     password: 'testpass',
@@ -26,7 +26,7 @@ beforeAll(async () => {
 
   token = loginRes.body.token;
 
-  // Прямо создаем продукт в базе
+  // добавляем в бд продукт
   const product = await Product.create({
     title: 'Мёд тестовый',
     description: 'Для тестов избранного',

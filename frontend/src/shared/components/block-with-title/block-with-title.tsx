@@ -1,5 +1,4 @@
 import React, { CSSProperties, FC } from 'react';
-import cls from './block-with-title.module.scss';
 
 interface Props {
     title: string;

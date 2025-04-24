@@ -1,21 +1,10 @@
-import { CloseOutlined } from '@ant-design/icons';
 import { ProductTile } from '@components/product-tile/product-tile';
-import { Button, Card, Col, Divider, notification, Row, Typography } from 'antd';
-import { useMemo, useState } from 'react';
-import cls from './cart.module.scss';
-import honeyImg from '@shared/assets/honey.png';
 import { useCart, useClearCart, useRemoveFromCart, useUpdateCartQuantity } from '@entities/cart/hooks';
+import { Button, Card, Col, Divider, notification, Row, Typography } from 'antd';
+import { useState } from 'react';
+import cls from './cart.module.scss';
 
 const { Title, Text } = Typography;
-
-interface Product {
-    id: string;
-    image: string;
-    name: string;
-    description: string;
-    price: number;
-    quantity: number;
-}
 
 export const Cart = () => {
     const { data: cart } = useCart();
@@ -37,11 +26,6 @@ export const Cart = () => {
             ? [...selectedProducts, id]
             : selectedProducts.filter(pId => pId !== id)
         );
-    };
-
-    const handleRemoveProduct = (id: string) => {
-        // setProducts(products.filter(p => p.id !== id));
-        // setSelectedProducts(selectedProducts.filter(pId => pId !== id));
     };
 
     const handleClearCart = () => {

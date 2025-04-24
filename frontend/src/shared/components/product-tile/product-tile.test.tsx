@@ -1,7 +1,8 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { ProductTile } from './product-tile';
+import { CartItem } from '@entities/cart/model';
 import '@testing-library/jest-dom';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+import { ProductTile } from './product-tile';
 
 describe('ProductTile component', () => {
   const mockCartItem = {
@@ -22,7 +23,7 @@ describe('ProductTile component', () => {
   it('renders product details correctly', () => {
     render(
       <ProductTile
-        cartItem={mockCartItem}
+        cartItem={mockCartItem as CartItem}
         onQuantityChange={onQuantityChange}
         onToggleSelect={onToggleSelect}
         onRemove={onRemove}
@@ -38,7 +39,7 @@ describe('ProductTile component', () => {
   it('calls onToggleSelect when checkbox is clicked', () => {
     render(
       <ProductTile
-        cartItem={mockCartItem}
+        cartItem={mockCartItem as CartItem}
         onQuantityChange={onQuantityChange}
         onToggleSelect={onToggleSelect}
         onRemove={onRemove}
@@ -54,7 +55,7 @@ describe('ProductTile component', () => {
   it('calls onRemove when delete button is clicked', () => {
     render(
       <ProductTile
-        cartItem={mockCartItem}
+        cartItem={mockCartItem as CartItem}
         onQuantityChange={onQuantityChange}
         onToggleSelect={onToggleSelect}
         onRemove={onRemove}

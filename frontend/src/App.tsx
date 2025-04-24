@@ -1,6 +1,5 @@
 import { antdTheme } from '@app/config/antd-theme';
 import { MainLayout } from '@app/layouts';
-import { useMe } from '@entities/user/hooks';
 import { ROUTES } from '@shared/const/routes';
 import { ConfigProvider } from 'antd';
 import { lazy, Suspense } from 'react';

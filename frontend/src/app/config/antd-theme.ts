@@ -53,8 +53,6 @@ export const antdTheme: ThemeConfig = {
             titleColor: colors.text.base,
         },
         Tooltip: {
-            colorBgSpotlight: colors.black,
-            colorText: colors.text.inverse,
             fontSize: 12,
         },
     },

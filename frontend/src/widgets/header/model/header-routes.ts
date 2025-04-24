@@ -1,6 +1,4 @@
 import { ROUTES } from '@shared/const/routes';
-import { Routes } from 'react-router-dom';
-import { Rollup } from 'vite';
 
 type HeaderRoute = {
     path: string;

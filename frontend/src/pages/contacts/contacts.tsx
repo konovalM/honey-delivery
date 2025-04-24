@@ -1,14 +1,13 @@
-import React from 'react';
-import { Typography, Divider } from 'antd';
 import {
     InstagramFilled,
-    PhoneFilled,
-    MessageFilled,
     MailFilled,
-    WhatsAppOutlined,
-    TeamOutlined
+    MessageFilled,
+    PhoneFilled,
+    WhatsAppOutlined
 } from '@ant-design/icons';
 import TelegramIcon from '@icons/telegram.svg?react';
+import { Divider, Typography } from 'antd';
+import React from 'react';
 import cls from './contacts.module.scss';
 
 const { Title, Paragraph, Text } = Typography;

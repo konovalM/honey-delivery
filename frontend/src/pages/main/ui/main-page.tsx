@@ -8,8 +8,6 @@ import { useAddFavorite, useFavorites, useRemoveFavorite } from '@entities/favor
 import { useAddToCart } from '@entities/cart/hooks';
 import { notification } from 'antd';
 
-interface Props { }
-
 export const MainPage = () => {
     const { data: products } = useProducts();
     const { data: favorites } = useFavorites();

@@ -1,8 +1,4 @@
-import React from 'react';
 import { Card, Divider, Image, Space, Typography } from 'antd';
-// import paymentCash from './images/payment-cash.jpg'; // Замените на свои изображения
-// import paymentCard from './images/payment-card.jpg';
-// import paymentOnline from './images/payment-online.jpg';
 import cls from './payment.module.scss';
 
 const { Title, Paragraph, Text } = Typography;

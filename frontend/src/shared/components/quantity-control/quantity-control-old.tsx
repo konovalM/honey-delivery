@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import cls from './quantity-control-old.module.scss';
 
 interface Props {
