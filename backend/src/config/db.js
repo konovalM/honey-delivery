@@ -1,8 +1,10 @@
 const { Sequelize } = require('sequelize');
-const { DB } = require('./config'); // импорт из нового config.js
+const { DB } = require('./config'); // импорт из config.js
+
+const dbName = process.env.NODE_ENV === 'test' ? 'honey_test' : DB.NAME;
 
 const sequelize = new Sequelize(
-  DB.NAME,
+  dbName,
   DB.USER,
   DB.PASSWORD,
   {
@@ -13,4 +15,3 @@ const sequelize = new Sequelize(
 );
 
 module.exports = sequelize;
-
