@@ -62,7 +62,7 @@ export const Cart = () => {
             <Row className={cls.wrapper} gutter={32}>
                 <Col span={18}>
                     <div className={cls.productsList}>
-                        {items.length === 0 ? <div style={{fontSize: '20px'}}>Корзина пуста</div> : items.map(cartItem => (
+                        {items.length === 0 ? <div style={{fontSize: '20px'}}>Корзина пуста</div> : items.sort((a, b) => a.product.createdAt.localeCompare(b.product.createdAt)).map(cartItem => (
                             <ProductTile
                                 key={cartItem.id}
                                 cartItem={cartItem}

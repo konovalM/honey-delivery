@@ -95,7 +95,6 @@ export const Catalog = () => {
                         {/* список товаров */}
 
                         <div className={cls.list}>
-                            <button onClick={() => {console.log('clicked');api.success({ message: 'success' })}}>click me</button>
                             {
                                 enhancedProducts && enhancedProducts.length > 0 ? enhancedProducts.map((item) => (
                                     <GoodsCard key={item.id} title={item.title} price={item.price} onAddToCart={handleAddToCart(item.id)} onToggleFavorite={() => item.isFavorite ? removeFavorite(item.id) : addFavorite(item.id)} isFavorite={item.isFavorite} />

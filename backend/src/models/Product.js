@@ -9,7 +9,7 @@ const Product = sequelize.define('Product', {
     autoIncrement: true,
   },
   type: {
-    type: DataTypes.ENUM('honey', 'propolis', 'pollen', 'honeycomb'),
+    type: DataTypes.ENUM('honey', 'propolis', 'pollen', 'honeycomb', 'other'),
     allowNull: false,
   },
   title: {
