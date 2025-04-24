@@ -1,10 +1,9 @@
 import { CloseOutlined } from '@ant-design/icons';
-import { Checkbox, Image, Typography } from 'antd';
-import cls from './product-tile.module.scss';
 import { QuantityControl } from '@components/quantity-control/quantity-control';
 import { CartItem } from '@entities/cart/model';
 import honeyImg from '@shared/assets/honey.png';
-import { Product } from '@entities/product/model';
+import { Checkbox, Image, Typography } from 'antd';
+import cls from './product-tile.module.scss';
 
 const { Text, Paragraph } = Typography;
 
@@ -63,6 +62,7 @@ export const ProductTile: React.FC<Props> = ({
                 </div>
 
                 <button
+                    data-testid="delete-button"
                     className={cls.removeButton}
                     onClick={() => onRemove(product.id)}
                 >
