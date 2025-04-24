@@ -2,13 +2,14 @@ const request = require('supertest');
 const app = require('../src/app');
 const sequelize = require('../src/config/db');
 const { Product } = require('../src/models'); // если нужно напрямую
-const db = require('../src/models');
+
+let mayHoneyId;
 
 beforeAll(async () => {
-    await db.sequelize.sync({ force: true });
+//   await sequelize.sync({ force: true });
 
   // Сидим пару продуктов
-  await Product.bulkCreate([
+  const products = await Product.bulkCreate([
     {
       type: 'honey',
       title: 'Майский мёд',
@@ -24,10 +25,12 @@ beforeAll(async () => {
       weight: 100,
     },
   ]);
+
+  mayHoneyId = products[0].id;
 });
 
 afterAll(async () => {
-  await db.sequelize.close();
+  await sequelize.close();
 });
 
 describe('Products API', () => {
@@ -39,9 +42,9 @@ describe('Products API', () => {
   });
 
   it('должен вернуть продукт по id', async () => {
-    const res = await request(app).get('/api/products/1');
+    const res = await request(app).get(`/api/products/${mayHoneyId}`);
     expect(res.statusCode).toBe(200);
-    expect(res.body).toHaveProperty('id', 1);
+    expect(res.body).toHaveProperty('id', mayHoneyId);
     expect(res.body).toHaveProperty('title', 'Майский мёд');
   });
 
