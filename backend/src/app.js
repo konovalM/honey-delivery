@@ -7,11 +7,11 @@ const cartRoutes = require('./routes/cart');
 
 const app = express();
 
-// Middleware
+// middleware
 app.use(cors());
 app.use(express.json());
 
-// Routes
+// все роуты
 app.get('/', (req, res) => {
   res.json({ message: 'Honey Shop API' });
 });
@@ -21,7 +21,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/favorites', favoriteRoutes);
 app.use('/api/cart', cartRoutes);
 
-// Error handling
+// хэндлинг ошибок
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Something broke!');
