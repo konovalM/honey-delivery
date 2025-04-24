@@ -3,7 +3,7 @@ const app = require('../src/app');
 const sequelize = require('../src/config/db');
 
 beforeAll(async () => {
-  await sequelize.sync({ force: true });
+  // await sequelize.sync({ force: true });
 
   // Регистрируем пользователя для логина
   await request(app).post('/api/auth/register').send({

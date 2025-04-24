@@ -7,7 +7,7 @@ let token;
 let productId;
 
 beforeAll(async () => {
-  await sequelize.sync({ force: true });
+  // await sequelize.sync({ force: true });
 
   // Регистрация и логин пользователя
   await request(app).post('/api/auth/register').send({

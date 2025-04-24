@@ -4,7 +4,7 @@ const app = require('../src/app'); // путь к express-приложению
 const sequelize = require('../src/config/db'); // или ../models если не в src
 
 beforeAll(async () => {
-  await sequelize.sync({ force: true }); // чистая база перед тестами
+  // await sequelize.sync({ force: true }); // чистая база перед тестами
 });
 
 describe('Auth API', () => {
