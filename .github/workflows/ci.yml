@@ -1,4 +1,4 @@
-name: CI
+name: Honey Delivery CI
 
 on:
   push:
@@ -24,20 +24,28 @@ jobs:
           --health-timeout 5s
           --health-retries 5
 
+    env:
+      DB_HOST: localhost
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: honey123
+      DB_NAME: honey_test
+      JWT_SECRET: testsecret
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
-      - name: Install backend dependencies
+      - name: Install dependencies
         run: cd backend && npm ci
 
-      - name: Run backend tests
-        run: cd backend && npm run test
+      - name: Create test database
+        run: |
+          sudo apt-get install -y postgresql-client
+          PGPASSWORD=honey123 psql -h localhost -U postgres -p 5432 -c "CREATE DATABASE honey_test;"
+
+      - name: Run tests
+        run: cd backend && npm run test:coverage
 
   frontend:
     runs-on: ubuntu-latest
@@ -46,16 +54,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
-      - name: Install frontend dependencies
+      - name: Install dependencies
         run: cd frontend && npm ci
 
       - name: Build frontend
         run: cd frontend && npm run build
 
       - name: Run frontend tests
-        run: cd frontend && npm run test
+        run: cd frontend && npm run test -- --coverage
