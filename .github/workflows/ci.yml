@@ -43,7 +43,7 @@ jobs:
       - name: Create test database
         run: |
           sudo apt-get install -y postgresql-client
-          PGPASSWORD=honey123 psql -h localhost -U postgres -p 5432 -c "CREATE DATABASE honey_test;"
+          PGPASSWORD=honey123 psql -h localhost -U postgres -p 5432 -c "CREATE DATABASE honey_test;" || true
 
       - name: Run backend tests
         run: cd backend && npm run test:coverage
