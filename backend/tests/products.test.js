@@ -4,7 +4,7 @@ const sequelize = require('../src/config/db');
 const { Product } = require('../src/models'); // если нужно напрямую
 
 beforeAll(async () => {
-//   await sequelize.sync({ force: true });
+  await sequelize.sync({ force: true });
 
   // Сидим пару продуктов
   await Product.bulkCreate([
