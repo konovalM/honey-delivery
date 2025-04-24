@@ -2,9 +2,10 @@ const request = require('supertest');
 const app = require('../src/app');
 const sequelize = require('../src/config/db');
 const { Product } = require('../src/models'); // если нужно напрямую
+const db = require('../src/models');
 
 beforeAll(async () => {
-  await sequelize.sync({ force: true });
+    await db.sequelize.sync({ force: true });
 
   // Сидим пару продуктов
   await Product.bulkCreate([
@@ -26,7 +27,7 @@ beforeAll(async () => {
 });
 
 afterAll(async () => {
-  await sequelize.close();
+  await db.sequelize.close();
 });
 
 describe('Products API', () => {
