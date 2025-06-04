@@ -1,6 +1,7 @@
 import { LOCAL_STORAGE_ACCESS_TOKEN } from "@shared/const/const";
 import axios from "axios";
 
+export const BASE_URL = import.meta.env.VITE_APP_URL ?? 'https://honey.local/';
 
 const API_URL = import.meta.env.VITE_APP_URL + 'api';
 
