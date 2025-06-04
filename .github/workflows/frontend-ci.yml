@@ -18,7 +18,13 @@ jobs:
         run: cd frontend && npm ci
 
       - name: Build project
-        run: cd frontend && npm run build && ls && pwd
+        run: cd frontend && npm run build
+
+      - name: Upload dist
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: frontend/dist
 
 
   test:
@@ -51,6 +57,12 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Download dist
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: frontend/dist
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
