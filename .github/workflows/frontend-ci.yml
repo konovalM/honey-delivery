@@ -18,7 +18,8 @@ jobs:
         run: cd frontend && npm ci
 
       - name: Build project
-        run: cd frontend && npm run build
+        run: cd frontend && npm run build && ls && pwd
+
 
   test:
     runs-on: ubuntu-latest
