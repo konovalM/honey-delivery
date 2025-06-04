@@ -88,5 +88,6 @@ jobs:
           context: ./backend
           file: ./backend/Dockerfile
           push: true
+          platforms: linux/arm64
           tags: ${{ secrets.DOCKER_USERNAME }}/honey-backend:latest
           

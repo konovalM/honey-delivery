@@ -70,4 +70,5 @@ jobs:
           context: ./frontend
           file: ./frontend/Dockerfile
           push: true
+          platforms: linux/arm64
           tags: ${{ secrets.DOCKER_USERNAME }}/honey-frontend:latest
