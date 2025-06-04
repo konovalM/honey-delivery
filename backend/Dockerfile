@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 3000 
 
 # 7. Команда запуска
-CMD ["npm", "run", "dev"]  
+CMD ["npm", "start"]  
