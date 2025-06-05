@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const client = require('prom-client');
 const productRoutes = require('./routes/products');
 const authRoutes = require('./routes/auth');
 const favoriteRoutes = require('./routes/favorite');
@@ -25,6 +26,16 @@ app.use('/api/cart', cartRoutes);
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Something broke!');
+});
+
+// Настройка метрик Prometheus
+const register = new client.Registry();
+client.collectDefaultMetrics({ register });
+
+// Эндпоинт для Prometheus
+app.get('/metrics', async (req, res) => {
+  res.set('Content-Type', register.contentType);
+  res.end(await register.metrics());
 });
 
 module.exports = app;
