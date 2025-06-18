@@ -1,4 +1,3 @@
-/// <reference types="vitest" />
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import path from 'path';
@@ -26,5 +25,20 @@ export default defineConfig({
         environment: 'jsdom',
         setupFiles: './vitest.setup.ts',
         css: true,
+        coverage: {
+            reporter: ['text', 'lcov'], // для sonarqube
+            reportsDirectory: './coverage', // default
+            exclude: [
+                '**/vitest.setup.ts',
+                '**/__mocks__/**',
+                '**/*.d.ts',
+                '**/index.ts',
+                'vite.config.ts',
+                'prettier.config.*',
+                'eslint.config.*',
+                'src/**/*.stories.*',
+                'dist/**'
+              ],
+          },
     },
 });

@@ -1,0 +1,6 @@
+projectKey=honey-frontend
+serverUrl=http://127.0.0.1:52852
+serverVersion=25.6.0.109173
+dashboardUrl=http://127.0.0.1:52852/dashboard?id=honey-frontend
+ceTaskId=e2dc7d20-fd59-4d6b-9d92-e5aee91ba348
+ceTaskUrl=http://127.0.0.1:52852/api/ce/task?id=e2dc7d20-fd59-4d6b-9d92-e5aee91ba348

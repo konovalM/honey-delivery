@@ -1,0 +1,300 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Payment Page > рендерится без ошибок и соответствует snapshot 1`] = `
+<div>
+  <div
+    class="_container_a7043b"
+  >
+    <h1
+      class="ant-typography _mainTitle_a7043b css-dev-only-do-not-override-1d4w9r2"
+    >
+      Способы оплаты
+    </h1>
+    <div
+      class="ant-typography _introText_a7043b css-dev-only-do-not-override-1d4w9r2"
+    >
+      Мы предлагаем удобные и безопасные способы оплаты для наших клиентов. Выберите наиболее подходящий вариант при оформлении заказа.
+    </div>
+    <div
+      class="ant-divider css-dev-only-do-not-override-1d4w9r2 ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start _divider_a7043b"
+      role="separator"
+    >
+      <span
+        class="ant-divider-inner-text"
+      >
+        <span
+          class="ant-typography css-dev-only-do-not-override-1d4w9r2"
+        >
+          <strong>
+            Доступные методы
+          </strong>
+        </span>
+      </span>
+    </div>
+    <div
+      class="_paymentMethods_a7043b"
+    >
+      <div
+        class="ant-card ant-card-bordered _paymentCard_a7043b css-dev-only-do-not-override-1d4w9r2"
+      >
+        <div
+          class="ant-card-cover"
+        >
+          <div
+            class="_imageContainer_a7043b"
+          >
+            <div
+              class="ant-image css-dev-only-do-not-override-1d4w9r2"
+            >
+              <img
+                alt="Онлайн-оплата"
+                class="ant-image-img _paymentImage_a7043b css-dev-only-do-not-override-1d4w9r2"
+                src="https://img.freepik.com/premium-vector/online-payment-concept_118813-2685.jpg"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-card-body"
+        >
+          <h3
+            class="ant-typography _cardTitle_a7043b css-dev-only-do-not-override-1d4w9r2"
+          >
+            Онлайн-оплата
+          </h3>
+          <div
+            class="ant-typography css-dev-only-do-not-override-1d4w9r2"
+          >
+            Безопасная оплата банковской картой через платежный шлюз Сбербанка
+          </div>
+          <div
+            class="ant-divider css-dev-only-do-not-override-1d4w9r2 ant-divider-horizontal ant-divider-dashed _advantagesDivider_a7043b"
+            role="separator"
+          />
+          <div
+            class="ant-space css-dev-only-do-not-override-1d4w9r2 ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small _advantagesList_a7043b"
+          >
+            <div
+              class="ant-space-item"
+            >
+              <span
+                class="ant-typography _advantageItem_a7043b css-dev-only-do-not-override-1d4w9r2"
+              >
+                ✓ 
+                Мгновенное подтверждение оплаты
+              </span>
+            </div>
+            <div
+              class="ant-space-item"
+            >
+              <span
+                class="ant-typography _advantageItem_a7043b css-dev-only-do-not-override-1d4w9r2"
+              >
+                ✓ 
+                Защита данных по стандарту PCI DSS
+              </span>
+            </div>
+            <div
+              class="ant-space-item"
+            >
+              <span
+                class="ant-typography _advantageItem_a7043b css-dev-only-do-not-override-1d4w9r2"
+              >
+                ✓ 
+                Возможность оплаты картами Visa, Mastercard, МИР
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-divider css-dev-only-do-not-override-1d4w9r2 ant-divider-horizontal ant-divider-dashed _noteDivider_a7043b"
+            role="separator"
+          />
+          <span
+            class="ant-typography ant-typography-secondary _noteText_a7043b css-dev-only-do-not-override-1d4w9r2"
+          >
+            После подтверждения заказа вы будете перенаправлены на страницу оплаты
+          </span>
+        </div>
+      </div>
+      <div
+        class="ant-card ant-card-bordered _paymentCard_a7043b css-dev-only-do-not-override-1d4w9r2"
+      >
+        <div
+          class="ant-card-cover"
+        >
+          <div
+            class="_imageContainer_a7043b"
+          >
+            <div
+              class="ant-image css-dev-only-do-not-override-1d4w9r2"
+            >
+              <img
+                alt="Оплата курьеру"
+                class="ant-image-img _paymentImage_a7043b css-dev-only-do-not-override-1d4w9r2"
+                src="https://img.freepik.com/premium-vector/cash-payment-concepts-style-illustration-eps-10-file_357500-4162.jpg"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-card-body"
+        >
+          <h3
+            class="ant-typography _cardTitle_a7043b css-dev-only-do-not-override-1d4w9r2"
+          >
+            Оплата курьеру
+          </h3>
+          <div
+            class="ant-typography css-dev-only-do-not-override-1d4w9r2"
+          >
+            Наличными или картой при получении заказа
+          </div>
+          <div
+            class="ant-divider css-dev-only-do-not-override-1d4w9r2 ant-divider-horizontal ant-divider-dashed _advantagesDivider_a7043b"
+            role="separator"
+          />
+          <div
+            class="ant-space css-dev-only-do-not-override-1d4w9r2 ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small _advantagesList_a7043b"
+          >
+            <div
+              class="ant-space-item"
+            >
+              <span
+                class="ant-typography _advantageItem_a7043b css-dev-only-do-not-override-1d4w9r2"
+              >
+                ✓ 
+                Бесплатная доставка при заказе от 3000 ₽
+              </span>
+            </div>
+            <div
+              class="ant-space-item"
+            >
+              <span
+                class="ant-typography _advantageItem_a7043b css-dev-only-do-not-override-1d4w9r2"
+              >
+                ✓ 
+                Возможность проверить товар перед оплатой
+              </span>
+            </div>
+            <div
+              class="ant-space-item"
+            >
+              <span
+                class="ant-typography _advantageItem_a7043b css-dev-only-do-not-override-1d4w9r2"
+              >
+                ✓ 
+                Курьер имеет POS-терминал для оплаты картой
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-divider css-dev-only-do-not-override-1d4w9r2 ant-divider-horizontal ant-divider-dashed _noteDivider_a7043b"
+            role="separator"
+          />
+          <span
+            class="ant-typography ant-typography-secondary _noteText_a7043b css-dev-only-do-not-override-1d4w9r2"
+          >
+            Принимаем наличные и бесконтактные платежи по терминалу
+          </span>
+        </div>
+      </div>
+      <div
+        class="ant-card ant-card-bordered _paymentCard_a7043b css-dev-only-do-not-override-1d4w9r2"
+      >
+        <div
+          class="ant-card-cover"
+        >
+          <div
+            class="_imageContainer_a7043b"
+          >
+            <div
+              class="ant-image css-dev-only-do-not-override-1d4w9r2"
+            >
+              <img
+                alt="Оплата в пункте выдачи"
+                class="ant-image-img _paymentImage_a7043b css-dev-only-do-not-override-1d4w9r2"
+                src="https://static.vecteezy.com/system/resources/previews/000/684/243/non_2x/online-payment.jpg"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-card-body"
+        >
+          <h3
+            class="ant-typography _cardTitle_a7043b css-dev-only-do-not-override-1d4w9r2"
+          >
+            Оплата в пункте выдачи
+          </h3>
+          <div
+            class="ant-typography css-dev-only-do-not-override-1d4w9r2"
+          >
+            В наших фирменных пунктах выдачи заказов
+          </div>
+          <div
+            class="ant-divider css-dev-only-do-not-override-1d4w9r2 ant-divider-horizontal ant-divider-dashed _advantagesDivider_a7043b"
+            role="separator"
+          />
+          <div
+            class="ant-space css-dev-only-do-not-override-1d4w9r2 ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small _advantagesList_a7043b"
+          >
+            <div
+              class="ant-space-item"
+            >
+              <span
+                class="ant-typography _advantageItem_a7043b css-dev-only-do-not-override-1d4w9r2"
+              >
+                ✓ 
+                Более 10 ПВЗ в Краснодаре и СПБ
+              </span>
+            </div>
+            <div
+              class="ant-space-item"
+            >
+              <span
+                class="ant-typography _advantageItem_a7043b css-dev-only-do-not-override-1d4w9r2"
+              >
+                ✓ 
+                Возможность примерки и проверки
+              </span>
+            </div>
+            <div
+              class="ant-space-item"
+            >
+              <span
+                class="ant-typography _advantageItem_a7043b css-dev-only-do-not-override-1d4w9r2"
+              >
+                ✓ 
+                Оплата картой или наличными
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-divider css-dev-only-do-not-override-1d4w9r2 ant-divider-horizontal ant-divider-dashed _noteDivider_a7043b"
+            role="separator"
+          />
+          <span
+            class="ant-typography ant-typography-secondary _noteText_a7043b css-dev-only-do-not-override-1d4w9r2"
+          >
+            Адреса и график работы можно уточнить при оформлении заказа
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="_securityInfo_a7043b"
+    >
+      <h4
+        class="ant-typography _securityTitle_a7043b css-dev-only-do-not-override-1d4w9r2"
+      >
+        Безопасность платежей
+      </h4>
+      <div
+        class="ant-typography css-dev-only-do-not-override-1d4w9r2"
+      >
+        Все платежи защищены современными технологиями шифрования. Мы не храним данные вашей банковской карты на своих серверах.
+      </div>
+    </div>
+  </div>
+</div>
+`;

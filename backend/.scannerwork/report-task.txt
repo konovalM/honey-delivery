@@ -1,6 +1,6 @@
 projectKey=honey-backend
-serverUrl=http://127.0.0.1:57795
+serverUrl=http://127.0.0.1:52852
 serverVersion=25.6.0.109173
-dashboardUrl=http://127.0.0.1:57795/dashboard?id=honey-backend
-ceTaskId=4ea32f08-8d5b-4e1a-8686-b5a534b437da
-ceTaskUrl=http://127.0.0.1:57795/api/ce/task?id=4ea32f08-8d5b-4e1a-8686-b5a534b437da
+dashboardUrl=http://127.0.0.1:52852/dashboard?id=honey-backend
+ceTaskId=bea16deb-2106-462f-83f7-a656bf7dada9
+ceTaskUrl=http://127.0.0.1:52852/api/ce/task?id=bea16deb-2106-462f-83f7-a656bf7dada9
