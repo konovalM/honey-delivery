@@ -12,10 +12,6 @@ const db = require('./models'); // импорт index.js с моделями
     await db.sequelize.sync({ alter: true }); 
     console.log('✅ Все модели синхронизированы');
 
-    // app.listen(PORT, () => {
-    //   console.log(`🚀 Сервер запущен на http://localhost:${PORT}`);
-    //   console.log(`🔧 DB config: ${JSON.stringify(DB)}`);
-    // });
     app.listen(PORT, '0.0.0.0', () => {
       console.log(`🚀 Сервер запущен на http://0.0.0.0:${PORT}`);
     });

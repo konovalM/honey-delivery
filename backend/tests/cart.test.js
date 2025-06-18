@@ -88,4 +88,48 @@ describe('Cart API', () => {
     expect(res.statusCode).toBe(200);
     expect(res.body.message).toBe('Удалено из корзины');
   });
+
+  it('должен вернуть 404 при добавлении несуществующего товара', async () => {
+    const res = await request(app)
+      .post('/api/cart')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ productId: 999999, quantity: 1 });
+  
+    expect(res.statusCode).toBe(404);
+    expect(res.body.message).toBe('Товар не найден');
+  });
+
+  it('должен вернуть 404 при обновлении несуществующего товара в корзине', async () => {
+    const res = await request(app)
+      .patch('/api/cart/999999')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ quantity: 10 });
+  
+    expect(res.statusCode).toBe(404);
+    expect(res.body.message).toBe('Товар не найден в корзине');
+  });
+
+  it('должен вернуть 404 при удалении несуществующего товара из корзины', async () => {
+    const res = await request(app)
+      .delete('/api/cart/999999')
+      .set('Authorization', `Bearer ${token}`);
+  
+    expect(res.statusCode).toBe(404);
+    expect(res.body.message).toBe('Товар не найден в корзине');
+  });
+
+  it('должен очистить корзину', async () => {
+    // Сначала добавим заново
+    await request(app)
+      .post('/api/cart')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ productId, quantity: 1 });
+  
+    const res = await request(app)
+      .delete('/api/cart')
+      .set('Authorization', `Bearer ${token}`);
+  
+    expect(res.statusCode).toBe(200);
+    expect(res.body.message).toBe('Корзина очищена');
+  });
 });

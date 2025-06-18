@@ -53,4 +53,29 @@ describe('Products API', () => {
     expect(res.statusCode).toBe(404);
     expect(res.body).toHaveProperty('error');
   });
+
+  it('должен вернуть продукты с фильтрацией и сортировкой', async () => {
+    const res = await request(app).get('/api/products')
+      .query({
+        type: 'honey',
+        minPrice: 100,
+        maxPrice: 500,
+        sort: 'price_desc',
+      });
+  
+    expect(res.statusCode).toBe(200);
+    expect(res.body.length).toBeGreaterThan(0);
+    expect(res.body[0]).toHaveProperty('type', 'honey');
+  });
+
+  it('должен вернуть 500 при ошибке сервера', async () => {
+    const original = Product.findByPk;
+    Product.findByPk = jest.fn().mockRejectedValue(new Error('DB error'));
+  
+    const res = await request(app).get(`/api/products/${mayHoneyId}`);
+    expect(res.statusCode).toBe(500);
+    expect(res.body).toHaveProperty('error');
+  
+    Product.findByPk = original; // восстановить оригинальную функцию
+  });
 });

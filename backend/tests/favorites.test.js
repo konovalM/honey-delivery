@@ -71,4 +71,45 @@ describe('Favorites API', () => {
     expect(res.statusCode).toBe(200);
     expect(res.body.message).toBe('Удалено из избранного');
   });
+
+  it('должен вернуть 400 при повторном добавлении в избранное', async () => {
+    // Первый раз — добавим
+    await request(app)
+      .post('/api/favorites')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ productId });
+  
+    // Второй раз — ожидаем 400
+    const res = await request(app)
+      .post('/api/favorites')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ productId });
+  
+    expect(res.statusCode).toBe(400);
+    expect(res.body.message).toBe('Уже в избранном');
+  });
+
+  it('должен вернуть 404 при удалении несуществующего товара из избранного', async () => {
+    const res = await request(app)
+      .delete('/api/favorites/999999')
+      .set('Authorization', `Bearer ${token}`);
+  
+    expect(res.statusCode).toBe(404);
+    expect(res.body.message).toBe('Не найдено');
+  });
+
+  it('должен очистить избранное', async () => {
+    // Добавим снова
+    await request(app)
+      .post('/api/favorites')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ productId });
+  
+    const res = await request(app)
+      .delete('/api/favorites')
+      .set('Authorization', `Bearer ${token}`);
+  
+    expect(res.statusCode).toBe(200);
+    expect(res.body.message).toBe('Избранное очищено');
+  });
 });
