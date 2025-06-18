@@ -1,4 +1,4 @@
-name: Deploy to Yandex Cloud
+name: Deploy
 
 on:
   repository_dispatch:
@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy to Yandex Cloud
+      - name: Deploy to cloud
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.VM_HOST }}
