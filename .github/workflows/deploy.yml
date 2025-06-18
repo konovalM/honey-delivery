@@ -1,0 +1,21 @@
+name: Deploy to Yandex Cloud
+
+on:
+  repository_dispatch:
+    types: [deploy]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Yandex Cloud
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          script: |
+            cd ~/apps
+            docker compose --env-file .env.prod -f docker-compose.prod.yml pull
+            docker compose --env-file .env.prod -f docker-compose.prod.yml up -d
