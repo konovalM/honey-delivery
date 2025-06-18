@@ -26,7 +26,6 @@ jobs:
           name: dist
           path: frontend/dist
 
-
   test:
     runs-on: ubuntu-latest
 
