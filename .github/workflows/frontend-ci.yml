@@ -39,9 +39,6 @@ jobs:
 
       - name: Run tests
         run: cd frontend && npm run test
-        
-      - name: Simulate failure
-        run: exit 1
 
   docker-push:
     runs-on: ubuntu-latest
