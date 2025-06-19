@@ -17,6 +17,14 @@ jobs:
           key: ${{ secrets.VM_SSH_KEY }}
           script: |
             cd ~/apps
-            docker compose --env-file .env.prod -f docker-compose.prod.yml down
+            echo "stopping old containers gracefully..."
+            docker compose --env-file .env.prod -f docker-compose.prod.yml stop || true
+
+            echo "removing old containers"
+            docker compose --env-file .env.prod -f docker-compose.prod.yml rm -f || true
+
+            echo "pulling latest images..."
             docker compose --env-file .env.prod -f docker-compose.prod.yml pull
+
+            echo "starting updated containers..."
             docker compose --env-file .env.prod -f docker-compose.prod.yml up -d
