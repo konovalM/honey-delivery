@@ -161,22 +161,22 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tags: ${{ secrets.DOCKER_USERNAME }}/honey-backend:latest
   
-  deploy:
-    runs-on: ubuntu-latest
-    needs: [docker-push]
-    if: github.ref == 'refs/heads/main'
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs: [docker-push]
+  #   if: github.ref == 'refs/heads/main'
 
-    steps:
-      - name: Deploy to Yandex Cloud VM
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.VM_HOST }}
-          username: ${{ secrets.VM_USER }}
-          key: ${{ secrets.VM_SSH_KEY }}
-          script: |
-            cd ~/apps
-            docker compose --env-file .env.prod -f docker-compose.prod.yml pull
-            docker compose --env-file .env.prod -f docker-compose.prod.yml up -d
+  #   steps:
+  #     - name: Deploy to Yandex Cloud VM
+  #       uses: appleboy/ssh-action@master
+  #       with:
+  #         host: ${{ secrets.VM_HOST }}
+  #         username: ${{ secrets.VM_USER }}
+  #         key: ${{ secrets.VM_SSH_KEY }}
+  #         script: |
+  #           cd ~/apps
+  #           docker compose --env-file .env.prod -f docker-compose.prod.yml pull
+  #           docker compose --env-file .env.prod -f docker-compose.prod.yml up -d
 
   notify:
     runs-on: ubuntu-latest
