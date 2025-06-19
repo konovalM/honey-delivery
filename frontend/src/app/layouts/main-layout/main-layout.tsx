@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import cls from './main-layout.module.scss';
-import { Header, Promo } from '@widgets/header';
+import { Header } from '@widgets/header';
 import { useLocation } from 'react-router-dom';
 
 interface Props {
