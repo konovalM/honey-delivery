@@ -18,4 +18,4 @@ jobs:
           script: |
             cd ~/apps
             docker compose --env-file .env.prod -f docker-compose.prod.yml pull
-            docker compose --env-file .env.prod -f docker-compose.prod.yml up -d
+            docker compose --env-file .env.prod -f docker-compose.prod.yml up -d --force-recreate
