@@ -14,7 +14,6 @@ const db = {
   Sequelize,
   Product,
   User,
-  Product,
   Favorite,
   CartItem
 };

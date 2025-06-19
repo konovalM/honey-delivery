@@ -7,6 +7,7 @@ const favoriteRoutes = require('./routes/favorite');
 const cartRoutes = require('./routes/cart');
 
 const app = express();
+app.disable('x-powered-by');
 
 // Настройка метрик Prometheus
 const register = new client.Registry();
@@ -20,7 +21,28 @@ const httpRequestCounter = new client.Counter({
 register.registerMetric(httpRequestCounter);
 
 // middleware
-app.use(cors());
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
+  'http://127.0.0.1:3000',
+  'http://honey.local',
+  'http://89.169.145.226',
+];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use((req, res, next) => {
   res.on('finish', () => {
