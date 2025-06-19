@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import cls from './main-layout.module.scss';
-import { Header } from '@widgets/header';
+import { Header, Promo } from '@widgets/header';
 import { useLocation } from 'react-router-dom';
 
 interface Props {
@@ -16,7 +16,7 @@ export const MainLayout: FC<Props> = ({ children }) => {
             <div className="container">
                 <Header isMainPage={isMainPage} />
             </div>
-            {/* {isMainPage && <Promo />} */}
+            {isMainPage && <Promo />}
             <div className="container">{children}</div>
         </div>
     );
