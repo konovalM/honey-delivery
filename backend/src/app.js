@@ -9,7 +9,7 @@ const cartRoutes = require('./routes/cart');
 const app = express();
 app.disable('x-powered-by');
 
-// Настройка метрик Prometheus
+// Настройка метрик prometheus
 const register = new client.Registry();
 client.collectDefaultMetrics({ register });
 
