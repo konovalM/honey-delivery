@@ -16,7 +16,7 @@ export const MainLayout: FC<Props> = ({ children }) => {
             <div className="container">
                 <Header isMainPage={isMainPage} />
             </div>
-            {isMainPage && <Promo />}
+            {/* {isMainPage && <Promo />} */}
             <div className="container">{children}</div>
         </div>
     );
